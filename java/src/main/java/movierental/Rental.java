@@ -2,7 +2,10 @@ package movierental;
 
 public class Rental {
 
-    private Movie _movie;
+    private static final int FRP_NEW_RELEASE_BONUS = 1;
+	private static final int BASE_FRP = 1;
+
+	private Movie _movie;
     private int _daysRented;
 	private double amount;
 
@@ -21,10 +24,15 @@ public class Rental {
 	}
 
 	public int frequentRenterPoints() {
-		// add bonus for a two day new release rental
-		if ((_movie.getPriceCode() == Pricing.NEW_RELEASE) && _daysRented > 1)
-		    return 2;
-		return 1;
+		return BASE_FRP + frpBonus();
+	}
+
+	private int frpBonus() {
+		return isEligibleForFRPNewReleaseBonus() ? FRP_NEW_RELEASE_BONUS : 0;
+	}
+
+	private boolean isEligibleForFRPNewReleaseBonus() {
+		return (_movie.getPriceCode() == Pricing.NEW_RELEASE) && _daysRented > 1;
 	}
 
 	public String statement() {
