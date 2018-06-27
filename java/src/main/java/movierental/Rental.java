@@ -4,10 +4,12 @@ public class Rental {
 
     private Movie _movie;
     private int _daysRented;
+	private double amount;
 
     public Rental(Movie movie, int daysRented) {
         _movie = movie;
         _daysRented = daysRented;
+		amount = computeAmount();
     }
 
     public int getDaysRented() {
@@ -20,7 +22,7 @@ public class Rental {
 
 
 	public double amount() {
-		return computeAmount();
+		return amount;
 	}
 
 	private double computeAmount() {
