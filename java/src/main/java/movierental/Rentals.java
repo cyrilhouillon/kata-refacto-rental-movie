@@ -25,4 +25,12 @@ public class Rentals implements Iterable<Rental> {
 		}
 		return totalFrequentRenterPoints;
 	}
+
+	public double amount() {
+		double totalAmount = 0;
+		for (Rental each : this) {
+	        totalAmount += each.amount();
+	    }
+		return totalAmount;
+	}
 }

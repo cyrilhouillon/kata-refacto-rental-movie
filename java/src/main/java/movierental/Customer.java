@@ -27,10 +27,7 @@ public class Customer {
             result += each.statement();
 		}
 
-		double totalAmount = 0;
-		for (Rental each : rentals) {
-            totalAmount += each.amount();
-        }
+		double totalAmount = rentals.amount();
 
         // add footer lines
         result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
