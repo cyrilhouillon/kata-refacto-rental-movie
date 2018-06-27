@@ -1,13 +1,13 @@
 package movierental;
-import java.util.ArrayList;
 
 public class Customer {
 
     private String _name;
-	private Rentals rentals = new Rentals(new ArrayList<Rental>());
+	private Rentals rentals;
 
 	public Customer(String name) {
         _name = name;
+		rentals = new Rentals();
     }
 
     public void addRental(Rental rental) {

@@ -2,14 +2,15 @@ package movierental;
 
 import static java.util.stream.Collectors.joining;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class Rentals implements Iterable<Rental> {
 	private List<Rental> _rentals;
 
-	public Rentals(List<Rental> _rentals) {
-		this._rentals = _rentals;
+	public Rentals() {
+		this._rentals = new ArrayList<>();
 	}
 
 	public boolean add(Rental rental) {
