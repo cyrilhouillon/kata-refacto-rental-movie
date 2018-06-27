@@ -27,9 +27,7 @@ public class Customer {
         for (Rental each: _rentals) {
 
 			totalFrequentRenterPoints += each.frequentRenterPoints();
-
-            // show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.amount()) + "\n";
+            result += each.statement();
             totalAmount += each.amount();
         }
 

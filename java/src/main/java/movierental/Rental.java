@@ -56,4 +56,8 @@ public class Rental {
 		    frequentRenterPoints++;
 		return frequentRenterPoints;
 	}
+
+	public String statement() {
+		return "\t" + getMovie().getTitle() + "\t" + String.valueOf(amount()) + "\n";
+	}
 }
