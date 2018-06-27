@@ -12,15 +12,6 @@ public class Rental {
 		amount = computeAmount();
     }
 
-    public int getDaysRented() {
-        return _daysRented;
-    }
-
-    public Movie getMovie() {
-        return _movie;
-    }
-
-
 	public double amount() {
 		return amount;
 	}
@@ -29,19 +20,19 @@ public class Rental {
 		double thisAmount = 0;
 	
 		// determine amounts for each line
-		switch (getMovie().getPriceCode()) {
+		switch (_movie.getPriceCode()) {
 			case REGULAR:
 		        thisAmount += 2;
-		        if (getDaysRented() > 2)
-		            thisAmount += (getDaysRented() - 2) * 1.5;
+		        if (_daysRented > 2)
+		            thisAmount += (_daysRented - 2) * 1.5;
 		        break;
 			case NEW_RELEASE:
-		        thisAmount += getDaysRented() * 3;
+		        thisAmount += _daysRented * 3;
 		        break;
 			case CHILDRENS:
 		        thisAmount += 1.5;
-		        if (getDaysRented() > 3)
-		            thisAmount += (getDaysRented() - 3) * 1.5;
+		        if (_daysRented > 3)
+		            thisAmount += (_daysRented - 3) * 1.5;
 		        break;
 		}
 		return thisAmount;
@@ -52,12 +43,12 @@ public class Rental {
 		// add frequent renter points
 		frequentRenterPoints++;
 		// add bonus for a two day new release rental
-		if ((getMovie().getPriceCode() == PriceCode.NEW_RELEASE) && getDaysRented() > 1)
+		if ((_movie.getPriceCode() == PriceCode.NEW_RELEASE) && _daysRented > 1)
 		    frequentRenterPoints++;
 		return frequentRenterPoints;
 	}
 
 	public String statement() {
-		return "\t" + getMovie().getTitle() + "\t" + String.valueOf(amount()) + "\n";
+		return "\t" + _movie.getTitle() + "\t" + String.valueOf(amount()) + "\n";
 	}
 }
