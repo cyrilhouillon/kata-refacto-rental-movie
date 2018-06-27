@@ -10,8 +10,8 @@ public class Customer {
         _name = name;
     }
 
-    public void addRental(Rental arg) {
-        rentals._rentals.add(arg);
+    public void addRental(Rental rental) {
+        rentals._rentals.add(rental);
     }
 
     public String getName() {
