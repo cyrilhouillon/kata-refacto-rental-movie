@@ -39,13 +39,10 @@ public class Rental {
 	}
 
 	public int frequentRenterPoints() {
-		int frequentRenterPoints = 0;
-		// add frequent renter points
-		frequentRenterPoints++;
 		// add bonus for a two day new release rental
 		if ((_movie.getPriceCode() == PriceCode.NEW_RELEASE) && _daysRented > 1)
-		    frequentRenterPoints++;
-		return frequentRenterPoints;
+			return 2;
+		return 1;
 	}
 
 	public String statement() {
