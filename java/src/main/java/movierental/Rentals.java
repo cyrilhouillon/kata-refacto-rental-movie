@@ -1,5 +1,7 @@
 package movierental;
 
+import static java.util.stream.Collectors.joining;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -14,31 +16,26 @@ public class Rentals implements Iterable<Rental> {
 		return _rentals.add(rental);
 	}
 
+	@Override
 	public Iterator<Rental> iterator() {
 		return _rentals.iterator();
 	}
 
 	public int frequentRenterPoints() {
-		int totalFrequentRenterPoints = 0;
-		for (Rental each : this) {
-			totalFrequentRenterPoints += each.frequentRenterPoints();
-		}
-		return totalFrequentRenterPoints;
+		return _rentals.stream()//
+				.mapToInt(Rental::frequentRenterPoints)//
+				.sum();
 	}
 
 	public double amount() {
-		double totalAmount = 0;
-		for (Rental each : this) {
-	        totalAmount += each.amount();
-	    }
-		return totalAmount;
+		return _rentals.stream()//
+				.mapToDouble(Rental::amount)//
+				.sum();
 	}
 
 	public String statement() {
-		String statements = "";
-		for (Rental each : this) {
-			statements += each.statement();
-		}
-		return statements;
+		return _rentals.stream()//
+				.map(Rental::statement)//
+				.collect(joining());
 	}
 }
