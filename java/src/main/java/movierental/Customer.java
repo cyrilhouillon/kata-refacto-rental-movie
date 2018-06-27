@@ -4,17 +4,17 @@ import java.util.ArrayList;
 public class Customer {
 
     private String _name;
-    private Rentals rentals = new Rentals(new ArrayList<Rental>());
+	private Rentals rentals = new Rentals(new ArrayList<Rental>());
 
 	public Customer(String name) {
         _name = name;
     }
 
     public void addRental(Rental rental) {
-        rentals._rentals.add(rental);
+		rentals.add(rental);
     }
 
-    public String getName() {
+	public String getName() {
         return _name;
     }
 

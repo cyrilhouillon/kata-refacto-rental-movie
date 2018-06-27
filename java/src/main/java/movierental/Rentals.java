@@ -8,4 +8,8 @@ public class Rentals {
 	public Rentals(List<Rental> _rentals) {
 		this._rentals = _rentals;
 	}
+
+	public boolean add(Rental rental) {
+		return _rentals.add(rental);
+	}
 }
