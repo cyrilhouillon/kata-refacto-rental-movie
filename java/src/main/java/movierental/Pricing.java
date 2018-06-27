@@ -1,31 +1,23 @@
 package movierental;
 
-import java.util.function.IntToDoubleFunction;
+import static movierental.PricingStrategy.CHILDRENS_STRATEGY;
+import static movierental.PricingStrategy.NEW_RELEASE_STRATEGY;
+import static movierental.PricingStrategy.REGULAR_STRATEGY;
 
 public enum Pricing {
 
-	CHILDRENS((daysRented) -> {
-		double initialAmount = 1.5;
-		if (daysRented > 3)
-			initialAmount += (daysRented - 3) * 1.5;
-		return initialAmount;
-	}), //
-	NEW_RELEASE((daysRented) -> daysRented * 3), //
-	REGULAR((daysRented) -> {
-		double initialAmount = 2;
-		if (daysRented > 2)
-			initialAmount += (daysRented - 2) * 1.5;
-		return initialAmount;
-	});
+	CHILDRENS(CHILDRENS_STRATEGY), //
+	NEW_RELEASE(NEW_RELEASE_STRATEGY), //
+	REGULAR(REGULAR_STRATEGY);
 
-	private IntToDoubleFunction amountComputation;
+	private PricingStrategy amountComputation;
 
-	private Pricing(IntToDoubleFunction amountComputation) {
+	private Pricing(PricingStrategy amountComputation) {
 		this.amountComputation = amountComputation;
 	}
 
 	public double amountFor(int daysRented) {
-		return amountComputation.applyAsDouble(daysRented);
+		return amountComputation.amountFor(daysRented);
 	}
 
 }
