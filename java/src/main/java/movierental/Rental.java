@@ -30,15 +30,15 @@ public class Rental {
 	
 		// determine amounts for each line
 		switch (getMovie().getPriceCode()) {
-		    case Movie.REGULAR:
+			case REGULAR:
 		        thisAmount += 2;
 		        if (getDaysRented() > 2)
 		            thisAmount += (getDaysRented() - 2) * 1.5;
 		        break;
-		    case Movie.NEW_RELEASE:
+			case NEW_RELEASE:
 		        thisAmount += getDaysRented() * 3;
 		        break;
-		    case Movie.CHILDRENS:
+			case CHILDRENS:
 		        thisAmount += 1.5;
 		        if (getDaysRented() > 3)
 		            thisAmount += (getDaysRented() - 3) * 1.5;
@@ -52,7 +52,7 @@ public class Rental {
 		// add frequent renter points
 		frequentRenterPoints++;
 		// add bonus for a two day new release rental
-		if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDaysRented() > 1)
+		if ((getMovie().getPriceCode() == PriceCode.NEW_RELEASE) && getDaysRented() > 1)
 		    frequentRenterPoints++;
 		return frequentRenterPoints;
 	}
