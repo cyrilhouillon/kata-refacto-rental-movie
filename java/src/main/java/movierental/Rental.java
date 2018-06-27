@@ -17,26 +17,12 @@ public class Rental {
 	}
 
 	private double computeAmount() {
-		double thisAmount = 0;
-	
-		// determine amounts for each line
-		switch (_movie.getPriceCode()) {
-			case REGULAR:
-			thisAmount = PriceCode.regularAmount(_daysRented);
-		        break;
-			case NEW_RELEASE:
-			thisAmount = PriceCode.newReleaseAmount(_daysRented);
-		        break;
-			case CHILDRENS:
-			thisAmount = PriceCode.childrensAmount(_daysRented);
-		        break;
-		}
-		return thisAmount;
+		return _movie.getPriceCode().amountFor(_daysRented);
 	}
 
 	public int frequentRenterPoints() {
 		// add bonus for a two day new release rental
-		if ((_movie.getPriceCode() == PriceCode.NEW_RELEASE) && _daysRented > 1)
+		if ((_movie.getPriceCode() == Pricing.NEW_RELEASE) && _daysRented > 1)
 		    return 2;
 		return 1;
 	}

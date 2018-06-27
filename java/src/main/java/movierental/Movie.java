@@ -3,14 +3,14 @@ package movierental;
 public class Movie {
 
     private String _title;
-	private PriceCode _priceCode;
+	private Pricing _priceCode;
 
-	public Movie(String title, PriceCode priceCode) {
+	public Movie(String title, Pricing priceCode) {
         _title = title;
         _priceCode = priceCode;
     }
 
-	public PriceCode getPriceCode() {
+	public Pricing getPriceCode() {
         return _priceCode;
     }
 
