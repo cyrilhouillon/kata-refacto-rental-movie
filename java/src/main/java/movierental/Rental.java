@@ -18,7 +18,12 @@ public class Rental {
         return _movie;
     }
 
+
 	public double amount() {
+		return computeAmount();
+	}
+
+	private double computeAmount() {
 		double thisAmount = 0;
 	
 		// determine amounts for each line
