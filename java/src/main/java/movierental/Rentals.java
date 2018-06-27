@@ -33,4 +33,12 @@ public class Rentals implements Iterable<Rental> {
 	    }
 		return totalAmount;
 	}
+
+	public String statement() {
+		String statements = "";
+		for (Rental each : this) {
+			statements += each.statement();
+		}
+		return statements;
+	}
 }

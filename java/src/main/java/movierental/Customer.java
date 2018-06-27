@@ -23,11 +23,7 @@ public class Customer {
 
 		int totalFrequentRenterPoints = rentals.frequentRenterPoints();
 
-		String statements = "";
-		for (Rental each : rentals) {
-			statements += each.statement();
-		}
-
+		String statements = rentals.statement();
 
 		double totalAmount = rentals.amount();
 
