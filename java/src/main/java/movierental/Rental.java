@@ -22,35 +22,16 @@ public class Rental {
 		// determine amounts for each line
 		switch (_movie.getPriceCode()) {
 			case REGULAR:
-			thisAmount = regularAmount(thisAmount);
+			thisAmount = PriceCode.regularAmount(_daysRented);
 		        break;
 			case NEW_RELEASE:
-			thisAmount = newReleaseAmount(thisAmount);
+			thisAmount = PriceCode.newReleaseAmount(_daysRented);
 		        break;
 			case CHILDRENS:
-			thisAmount = childrensAmount();
+			thisAmount = PriceCode.childrensAmount(_daysRented);
 		        break;
 		}
 		return thisAmount;
-	}
-
-	private double childrensAmount() {
-		initialAmount += 1.5;
-		if (_daysRented > 3)
-		    initialAmount += (_daysRented - 3) * 1.5;
-		return initialAmount;
-	}
-
-	private double newReleaseAmount(double initialAmount) {
-		initialAmount += _daysRented * 3;
-		return initialAmount;
-	}
-
-	private double regularAmount(double initialAmount) {
-		initialAmount += 2;
-		if (_daysRented > 2)
-		    initialAmount += (_daysRented - 2) * 1.5;
-		return initialAmount;
 	}
 
 	public int frequentRenterPoints() {
