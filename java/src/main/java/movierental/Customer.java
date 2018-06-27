@@ -22,16 +22,16 @@ public class Customer {
 		String result = "Rental Record for " + getName() + "\n";
 
 		int totalFrequentRenterPoints = 0;
-        for (Rental each: rentals._rentals) {
+		for (Rental each : rentals) {
 			totalFrequentRenterPoints += each.frequentRenterPoints();
 		}
 
-		for (Rental each : rentals._rentals) {
+		for (Rental each : rentals) {
             result += each.statement();
 		}
 
 		double totalAmount = 0;
-		for (Rental each : rentals._rentals) {
+		for (Rental each : rentals) {
             totalAmount += each.amount();
         }
 
