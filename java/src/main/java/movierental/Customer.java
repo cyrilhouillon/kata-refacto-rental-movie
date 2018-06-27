@@ -20,14 +20,19 @@ public class Customer {
     }
 
     public String statement() {
-        double totalAmount = 0;
+		String result = "Rental Record for " + getName() + "\n";
+
 		int totalFrequentRenterPoints = 0;
-        String result = "Rental Record for " + getName() + "\n";
-
         for (Rental each: _rentals) {
-
 			totalFrequentRenterPoints += each.frequentRenterPoints();
+		}
+
+		for (Rental each : _rentals) {
             result += each.statement();
+		}
+
+		double totalAmount = 0;
+		for (Rental each : _rentals) {
             totalAmount += each.amount();
         }
 
