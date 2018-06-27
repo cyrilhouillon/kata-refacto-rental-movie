@@ -21,16 +21,11 @@ public class Customer {
     public String statement() {
 		String result = "Rental Record for " + getName() + "\n";
 
-		int totalFrequentRenterPoints = rentals.frequentRenterPoints();
+		result += rentals.statement();
 
-		String statements = rentals.statement();
-
-		double totalAmount = rentals.amount();
-
-		result += statements;
-        // add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-		result += "You earned " + String.valueOf(totalFrequentRenterPoints) + " frequent renter points";
+		// add footer lines
+        result += "Amount owed is " + String.valueOf(rentals.amount()) + "\n";
+		result += "You earned " + String.valueOf(rentals.frequentRenterPoints()) + " frequent renter points";
 
         return result;
     }
