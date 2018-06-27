@@ -17,4 +17,12 @@ public class Rentals implements Iterable<Rental> {
 	public Iterator<Rental> iterator() {
 		return _rentals.iterator();
 	}
+
+	public int frequentRenterPoints() {
+		int totalFrequentRenterPoints = 0;
+		for (Rental each : this) {
+			totalFrequentRenterPoints += each.frequentRenterPoints();
+		}
+		return totalFrequentRenterPoints;
+	}
 }

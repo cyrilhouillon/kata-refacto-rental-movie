@@ -21,10 +21,7 @@ public class Customer {
     public String statement() {
 		String result = "Rental Record for " + getName() + "\n";
 
-		int totalFrequentRenterPoints = 0;
-		for (Rental each : rentals) {
-			totalFrequentRenterPoints += each.frequentRenterPoints();
-		}
+		int totalFrequentRenterPoints = rentals.frequentRenterPoints();
 
 		for (Rental each : rentals) {
             result += each.statement();
