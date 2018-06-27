@@ -1,18 +1,17 @@
 package movierental;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Customer {
 
     private String _name;
-    private List<Rental> _rentals = new ArrayList<Rental>();
+    private Rentals rentals = new Rentals(new ArrayList<Rental>());
 
-    public Customer(String name) {
+	public Customer(String name) {
         _name = name;
     }
 
     public void addRental(Rental arg) {
-        _rentals.add(arg);
+        rentals._rentals.add(arg);
     }
 
     public String getName() {
@@ -23,16 +22,16 @@ public class Customer {
 		String result = "Rental Record for " + getName() + "\n";
 
 		int totalFrequentRenterPoints = 0;
-        for (Rental each: _rentals) {
+        for (Rental each: rentals._rentals) {
 			totalFrequentRenterPoints += each.frequentRenterPoints();
 		}
 
-		for (Rental each : _rentals) {
+		for (Rental each : rentals._rentals) {
             result += each.statement();
 		}
 
 		double totalAmount = 0;
-		for (Rental each : _rentals) {
+		for (Rental each : rentals._rentals) {
             totalAmount += each.amount();
         }
 
